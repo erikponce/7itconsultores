@@ -1,0 +1,174 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+/* Estilos para el formulario de registro público */
+#reqr-registration-form-wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#reqr-registration-form p {
+    margin-bottom: 15px;
+}
+
+#reqr-registration-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#reqr-registration-form input[type="text"],
+#reqr-registration-form input[type="email"],
+#reqr-registration-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+}
+
+#reqr-registration-form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #0073aa; /* Color primario de WordPress */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#reqr-registration-form input[type="submit"]:hover {
+    background-color: #005177;
+}
+
+#reqr-registration-form .required {
+    color: red;
+    margin-left: 2px;
+}
+
+/* Mensajes de error y éxito */
+.reqr-errors {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #d9534f; /* Rojo */
+    color: #d9534f;
+    background-color: #f2dede;
+    border-radius: 3px;
+}
+.reqr-errors p {
+    margin: 0 0 5px 0;
+}
+.reqr-errors p:last-child {
+    margin-bottom: 0;
+}
+
+.reqr-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #5cb85c; /* Verde */
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-radius: 3px;
+}
+.reqr-success p {
+    margin: 0;
+}
+
+
+/* Estilos para la página de confirmación */
+#reqr-confirmation-wrapper {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#reqr-confirmation-wrapper h1 {
+    color: #4CAF50; /* Verde */
+}
+
+.reqr-qr-code img {
+    display: block;
+    margin: 20px auto;
+    max-width: 250px; /* Ajusta según necesites */
+    height: auto;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.reqr-registration-summary {
+    text-align: left;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.reqr-registration-summary h3 {
+    margin-bottom: 10px;
+}
+
+
+/* Estilos para la página de validación QR pública (template-qr-validation-page.php) */
+#reqr-validation-interface {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+#reqr-public-qr-reader {
+    border: 2px dashed #0073aa;
+    padding: 10px;
+    background: #f0f0f1; /* Similar al fondo de admin de WP */
+}
+
+#reqr-public-qr-reader-results,
+#reqr-ajax-validation-output { /* Compartido con admin CSS */
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    min-height: 60px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+#reqr-public-qr-reader-results button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#reqr-public-qr-reader-results button:hover{
+    background-color: #005177;
+}
+
+#reqr-manual-validation-section .form-table th,
+#reqr-manual-validation-section .form-table td {
+    padding: 10px;
+}
+#reqr-manual-validation-section input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+}
+#reqr-manual-validation-section input[type="submit"]{
+     padding: 8px 15px;
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Clases de resultado (pueden heredar de admin.css si se cargan ambos, o definirse aquí) */
+.reqr-result-success p { color: #3c763d; background-color: #dff0d8; padding: 10px; border-left: 4px solid #5cb85c;}
+.reqr-result-warning p { color: #8a6d3b; background-color: #fcf8e3; padding: 10px; border-left: 4px solid #f0ad4e;}
+.reqr-result-error p { color: #a94442; background-color: #f2dede; padding: 10px; border-left: 4px solid #d9534f;}
