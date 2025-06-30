@@ -1,0 +1,88 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+/* Estilos para la página de configuración del plugin */
+.reqr-settings-table th {
+    width: 200px;
+}
+
+.reqr-settings-table .regular-text {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Estilos para la previsualización del logo */
+#logo-preview-container img {
+    max-width: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 5px;
+}
+
+/* Estilos para la página de validación QR en el admin */
+#reqr-validation-area #reqr-qr-reader {
+    width: 100%;
+    max-width: 400px; /* Ajusta según sea necesario */
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#reqr-qr-reader-results,
+#reqr-manual-validation-results,
+#reqr-ajax-validation-output { /* Para la página pública también */
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px dashed #ddd;
+    background-color: #f9f9f9;
+    min-height: 50px;
+    word-wrap: break-word;
+}
+
+#reqr-qr-reader-results p,
+#reqr-manual-validation-results p,
+#reqr-ajax-validation-output p {
+    margin: 0;
+}
+
+/* Clases para los mensajes de resultado */
+.reqr-result-success, .notice-success {
+    border-left-color: #4CAF50 !important; /* Verde */
+    background-color: #f0fff0 !important;
+    padding: 10px !important;
+}
+.reqr-result-warning, .notice-warning {
+    border-left-color: #FFC107 !important; /* Ámbar */
+    background-color: #fff8e1 !important;
+    padding: 10px !important;
+}
+.reqr-result-error, .notice-error {
+    border-left-color: #F44336 !important; /* Rojo */
+    background-color: #ffebee !important;
+    padding: 10px !important;
+}
+
+/* Estilos para la tabla de registros */
+.wp-list-table .column-qr_code_hash {
+    width: 15%;
+}
+.wp-list-table .column-confirmado {
+    width: 10%;
+    text-align: center !important;
+}
+.wp-list-table .column-acciones {
+    width: 15%;
+}
+
+.status-confirmado {
+    color: green;
+    font-weight: bold;
+}
+.status-no-confirmado {
+    color: red;
+}
