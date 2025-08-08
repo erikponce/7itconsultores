@@ -3,7 +3,7 @@
  * Plugin Name: Evento Check-in
  * Plugin URI: https://github.com/7itconsultores/evento-check-in
  * Description: A plugin to manage event registrations and check-ins using QR codes.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: 7itconsultores
  * Author URI: https://7itconsultores.com/
  * License: GPL-2.0+
@@ -17,7 +17,7 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
-define( 'EVENTO_CHECKIN_VERSION', '1.0.0' );
+define( 'EVENTO_CHECKIN_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.
