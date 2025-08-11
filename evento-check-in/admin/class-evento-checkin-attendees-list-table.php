@@ -19,6 +19,9 @@ class Evento_Checkin_Attendees_List_Table extends WP_List_Table {
             'cb'                => '<input type="checkbox" />',
             'name'              => __( 'Name', 'evento-check-in' ),
             'email'             => __( 'Email', 'evento-check-in' ),
+            'company'           => __( 'Company', 'evento-check-in' ),
+            'position'          => __( 'Position', 'evento-check-in' ),
+            'phone'             => __( 'Phone', 'evento-check-in' ),
             'registration_date' => __( 'Registration Date', 'evento-check-in' ),
             'check_in_status'   => __( 'Checked In', 'evento-check-in' ),
         ];
@@ -63,6 +66,8 @@ class Evento_Checkin_Attendees_List_Table extends WP_List_Table {
         return [
             'name'              => [ 'name', false ],
             'email'             => [ 'email', false ],
+            'company'           => [ 'company', false ],
+            'position'          => [ 'position', false ],
             'registration_date' => [ 'registration_date', true ],
             'check_in_status'   => [ 'check_in_status', false ],
         ];

@@ -39,11 +39,13 @@ class Evento_Checkin_Activator {
             id mediumint(9) NOT NULL AUTO_INCREMENT,
             name tinytext NOT NULL,
             email text NOT NULL,
+            company text,
+            position text,
+            phone text,
             qr_code text NOT NULL,
             registration_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
             check_in_status tinyint(1) NOT NULL DEFAULT 0,
             check_in_date datetime,
-            custom_fields text,
             PRIMARY KEY  (id)
         ) $charset_collate;";
 

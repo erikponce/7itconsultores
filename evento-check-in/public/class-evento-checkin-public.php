@@ -113,9 +113,22 @@ class Evento_Checkin_Public {
     public function render_registration_form() {
         ob_start();
 
-        if ( isset( $_GET['registration'] ) && $_GET['registration'] === 'success' ) {
-            echo '<p class="evento-checkin-success-message">' . __( 'Thank you for registering!', 'evento-check-in' ) . '</p>';
+        if ( isset( $_GET['registration_key'] ) ) {
+            $transient_key = sanitize_key( $_GET['registration_key'] );
+            $confirmation_data = get_transient( $transient_key );
+
+            if ( $confirmation_data ) {
+                // The transient exists, so show the confirmation screen.
+                // We need to pass the data to the partial.
+                $this->render_confirmation_partial( $confirmation_data );
+                delete_transient( $transient_key ); // Clean up the transient
+            } else {
+                // The transient has expired or is invalid, show a generic success message.
+                echo '<p class="evento-checkin-success-message">' . __( 'Thank you for registering!', 'evento-check-in' ) . '</p>';
+            }
+
         } else {
+            // No registration key, show the form.
             include_once 'partials/evento-checkin-public-display.php';
         }
 
@@ -124,6 +137,18 @@ class Evento_Checkin_Public {
         }
 
         return ob_get_clean();
+    }
+
+    /**
+     * Render the confirmation partial.
+     *
+     * @since    1.1.0
+     */
+    private function render_confirmation_partial( $data ) {
+        // Make data available to the partial
+        $name = $data['name'];
+        $qr_code = $data['qr_code'];
+        include_once 'partials/evento-checkin-public-confirmation.php';
     }
 
     /**
@@ -142,6 +167,9 @@ class Evento_Checkin_Public {
 
         $name = sanitize_text_field( $_POST['evento_name'] );
         $email = sanitize_email( $_POST['evento_email'] );
+        $company = sanitize_text_field( $_POST['evento_company'] );
+        $position = sanitize_text_field( $_POST['evento_position'] );
+        $phone = sanitize_text_field( $_POST['evento_phone'] );
 
         if ( empty( $name ) || empty( $email ) || ! is_email( $email ) ) {
             $this->redirect_with_error();
@@ -156,9 +184,12 @@ class Evento_Checkin_Public {
         $result = $wpdb->insert(
             $table_name,
             array(
-                'name' => $name,
-                'email' => $email,
-                'qr_code' => $qr_code,
+                'name'              => $name,
+                'email'             => $email,
+                'company'           => $company,
+                'position'          => $position,
+                'phone'             => $phone,
+                'qr_code'           => $qr_code,
                 'registration_date' => current_time( 'mysql' ),
             )
         );
@@ -172,8 +203,16 @@ class Evento_Checkin_Public {
 
         $this->send_confirmation_email( $attendee_id, $name, $email, $qr_code );
 
+        // Set a transient to show the confirmation screen
+        $transient_key = 'evento_checkin_confirmation_' . md5( $qr_code );
+        $transient_data = [
+            'name'      => $name,
+            'qr_code'   => $qr_code,
+        ];
+        set_transient( $transient_key, $transient_data, 5 * MINUTE_IN_SECONDS );
+
         $redirect_url = remove_query_arg( 'registration_error', wp_get_referer() );
-        $redirect_url = add_query_arg( 'registration', 'success', $redirect_url );
+        $redirect_url = add_query_arg( 'registration_key', $transient_key, $redirect_url );
         wp_safe_redirect( $redirect_url );
         exit;
     }
