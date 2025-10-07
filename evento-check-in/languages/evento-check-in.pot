@@ -1,0 +1,63 @@
+# Copyright (C) 2025 7itconsultores
+# This file is distributed under the same license as the Evento Check-in plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Evento Check-in 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/evento-check-in\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-06 18:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: Jules\n"
+"X-Domain: evento-check-in\n"
+
+#. Plugin Name of the plugin/theme
+msgid "Evento Check-in"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:123
+msgid "Settings"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:131
+msgid "Attendees"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:139
+msgid "Scan QR"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:241
+msgid "General Settings"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:248
+msgid "Event Title"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:256
+msgid "Confirmation Email Settings"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:263
+msgid "Email Subject"
+msgstr ""
+
+#: admin/class-evento-checkin-admin.php:270
+msgid "Email Body"
+msgstr ""
+
+#: public/partials/evento-checkin-public-display.php:22
+msgid "Name"
+msgstr ""
+
+#: public/partials/evento-checkin-public-display.php:26
+msgid "Email"
+msgstr ""
+
+#: public/partials/evento-checkin-public-display.php:31
+msgid "Register"
+msgstr ""
